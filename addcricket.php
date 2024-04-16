@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 
 include 'conn.php';
@@ -31,6 +36,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     // $description = mysqli_real_escape_string($conn, $description);
     // $target_file = mysqli_real_escape_string($conn, $target_file);
     
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
+        
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    }
 
      
     $sql = "INSERT INTO cricket(name, games,address,city,direction,contact,description,image)
