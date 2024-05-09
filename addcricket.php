@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $direction = $_POST['direction'];
     $contact = $_POST['contact'];
     $description = $_POST['description'];
+    $amount=$_POST['amount'];
     $image=$_POST['image'];
 
 
@@ -44,13 +45,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     }
 
      
-    $sql = "INSERT INTO cricket(name, games,address,city,direction,contact,description,image)
-    VALUES('$name','$games','$address','$city','$direction','$contact','$description','$image')";
+    $sql = "INSERT INTO cricket(name, games,address,city,direction,contact,description,image,amount)
+    VALUES('$name','$games','$address','$city','$direction','$contact','$description','$target_file','$amount')";
 
     $e=mysqli_query($conn,$sql);
 
     if($e){
-        echo "data added";
+        echo "data  added";
 
     }
     else{
